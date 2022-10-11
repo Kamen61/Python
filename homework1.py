@@ -46,34 +46,90 @@
 #     print('4')
 
 
-# 4 Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
+# задача 4 HARD необязательная Напишите простой калькулятор, который считывает с пользовательского ввода три строки: первое число, второе число и операцию, после чего применяет операцию к введённым числам ("первое число" "операция" "второе число") и выводит результат на экран.
+# Поддерживаемые операции: +, -, /, *, mod, pow, div, где
+# mod — это взятие остатка от деления,
+# pow — возведение в степень,
+# div — целочисленное деление.
+# Если выполняется деление и второе число равно 0, необходимо выводить строку "Деление на 0!".
+# Обратите внимание, что на вход программе приходят вещественные числа.
 
-# quarter = int(input('\nВведите целое число по Х : '))
-# if quarter in range(1, 4):
-#     if quarter == 1:
-#         print('x > 0 , y > 0')
-#     elif quarter == 2:
-#         print('x < 0 , y > 0')
-#     elif quarter == 3:
-#         print('x < 0 , y < 0')
-#     else:
-#         print('x > 0 , y < 0')
+# Sample Input 1:
+# 5.0
+# 0.0
+# mod
+# Sample Output 1:
+# Деление на 0!
+
+# Sample Input 2:
+# -12.0
+# -8.0
+# *
+# Sample Output 2:
+# 96.0
+
+# Sample Input 3:
+# 5.0
+# 10.0
+# /
+# Sample Output 3:
+# 0.5
+
+# num1=float(input('Введите первое число: '))
+# num2=float(input('Введите второе число: '))
+# act=input('Какое действие между числами: ')
+# result=0
+# if num1==0 or num2==0:
+#     print('Деление на 0 !')
 # else:
-#     print('Такой четверти не существует ')
+#     if act=='/':
+#         result=num1/num2
+#     elif act=='*':
+#         result=num1*num2
+#     elif act=='+':
+#         result=num1+num2
+#     elif act=='-':
+#         result=num1-num2
+#     elif act=='mod':
+#         result=num1%num2
+#     elif act=='div':
+#         result=num1//num2
+#     elif act=='pow':
+#         result=num1**num2
+#     print(result)
 
 
-# 5 Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
-# Пример:
-# - A (3,6); B (2,1) -> 5,09
-# - A (7,-5); B (1,-1) -> 7,211
 
-import math
+# Задача 5 VERY HARD SORT необязательная
+# Задайте двумерный массив из целых чисел. Количество строк и столбцов задается с клавиатуры. Отсортировать элементы по возрастанию слева направо и сверху вниз.
+# Например, задан массив:
+# 1 4 7 2
+# 5 9 10 3
 
+# После сортировки
+# 1 2 3 4
+# 5 7 9 10
 
-x_a = int(input('Координаты первой точки по X : '))
-y_a = int(input('Координаты первой точки по Y : '))
-x_b = int(input('Координаты второй точки по X : '))
-y_b = int(input('Координаты второй точки по X : '))
-distance = ((x_b - x_a) ** 2 + (y_b - y_a) ** 2)
-distance = math.sqrt(distance)
-print(f'Расстояние между двумя точками = {round(distance, 2)}')
+# 
+
+line1 = [int(el) for el in input('Введите первую строчку массива : ').split()]
+line2 = [int(el) for el in input('Введите вторую строчку массива : ').split()]
+
+full_array=line1+line2
+a=1
+for i in range(len(full_array)-a):
+    for j in range(len(full_array)-i-a):
+        if full_array[j] > full_array[j+1]:
+            full_array[j], full_array[j+1] = full_array[j+1], full_array[j]
+print(full_array)
+count=0
+for i in range(len(full_array)):
+    if i<len(line1):
+        line1[i]=full_array[i]
+    else:
+        line2[count]=full_array[i]
+        count=count+1
+
+print(line1)
+print(line2)
+
