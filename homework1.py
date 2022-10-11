@@ -110,26 +110,25 @@
 # 1 2 3 4
 # 5 7 9 10
 
-# 
 
-line1 = [int(el) for el in input('Введите первую строчку массива : ').split()]
-line2 = [int(el) for el in input('Введите вторую строчку массива : ').split()]
 
-full_array=line1+line2
-a=1
-for i in range(len(full_array)-a):
-    for j in range(len(full_array)-i-a):
-        if full_array[j] > full_array[j+1]:
-            full_array[j], full_array[j+1] = full_array[j+1], full_array[j]
-print(full_array)
-count=0
-for i in range(len(full_array)):
-    if i<len(line1):
-        line1[i]=full_array[i]
-    else:
-        line2[count]=full_array[i]
-        count=count+1
+# line1 = [int(el) for el in input('Введите первую строчку массива : ').split()]
+# line2 = [int(el) for el in input('Введите вторую строчку массива : ').split()]
 
-print(line1)
-print(line2)
+# full_array=line1+line2
+# a=1
+# for i in range(len(full_array)-a):
+#     for j in range(len(full_array)-i-a):
+#         if full_array[j] > full_array[j+1]:
+#             full_array[j], full_array[j+1] = full_array[j+1], full_array[j]
+# count=0
+# for i in range(len(full_array)):
+#     if i<len(line1):
+#         line1[i]=full_array[i]
+#     else:
+#         line2[count]=full_array[i]
+#         count=count+1
+
+# print(line1)
+# print(line2)
 
