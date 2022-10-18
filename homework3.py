@@ -87,34 +87,40 @@
 
 
 
+# задача5 HARD необязательная.
+# Сгенерировать массив случайных целых чисел размерностью m*n (размерность вводим с клавиатуры) , 
+# причем чтоб количество элементов было четное. Вывести на экран красивенько таблицей. Перемешать 
+# случайным образом элементы массива, причем чтобы каждый гарантированно переместился на другое место и выполнить 
+# это за m*n / 2 итераций. То есть если массив три на четыре, то надо выполнить не более 6 итераций. 
+# И далее в конце опять вывести на экран как таблицу.
 
 
+from random import randint
 
 
-# Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
-# Пример:
-# для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
-# Негафибоначчи
+row=int(input('chislo row : '))
+line=int(input('chislo line : '))
+if (row*line)%2!=0:
+    line+=1
+result=[[0]*row for i in range(line)]
 
-def positive_fib(list_fib):
-    num_1 = 0
-    num_2 = 1
-    for i in range(number + 1):
-        list_fib.append(num_1)
-        temp = num_1 + num_2
-        num_1, num_2 = num_2, temp
+for j in range(line):
+    print()
+    for i in range(row):
+        result[j][i]=randint(10,99)
+        print(result[j][i],end=' ')
 
-def negative_fib(list_fib):
-    num_1 = 1
-    num_2 = -1
-    for i in range(number):
-        list_fib.insert(0, num_1)
-        temp = num_1 - num_2
-        num_1, num_2 = num_2, temp
 
-number = int(input('Введите число: '))
-fibonacci = []
-negative_fib(fibonacci)
-print(fibonacci)
-positive_fib(fibonacci)
-print(fibonacci)
+for i in range(line):
+    swap=result[i][row-1]
+    del result[i][row-1]
+    result[i].insert(0,swap)
+
+print()
+
+for i in range(line):
+    print()
+    for j in range(row):
+        print(result[i][j],end=' ')
+
+
